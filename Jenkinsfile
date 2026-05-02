@@ -58,6 +58,15 @@ pipeline {
       }
     }
 
+    stage('Show Compose Status') {
+      steps {
+        script {
+          sh 'docker compose -f ${COMPOSE_FILE} ps'
+          sh 'docker compose -f ${COMPOSE_FILE} logs --tail=25'
+        }
+      }
+    }
+
     stage('Cleanup') {
       steps {
         script {
