@@ -20,6 +20,18 @@ pipeline {
       }
     }
 
+    stage('Run Route Tests') {
+      steps {
+        script {
+          // Create a virtual environment and install dependencies
+          sh 'python3 -m venv .venv'
+          sh '.venv/bin/pip install -r requirements.txt'
+          // Run Flask route tests before building the Docker image
+          sh '.venv/bin/python -m unittest tests/test_routes.py'
+        }
+      }
+    }
+
     stage('Build Docker Image') {
       steps {
         script {
