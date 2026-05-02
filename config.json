@@ -1,0 +1,7 @@
+{
+  "app_name": "Flask System Health Dashboard",
+  "environment": "development",
+  "status": "ok",
+  "host": "0.0.0.0",
+  "port": 8080
+}
