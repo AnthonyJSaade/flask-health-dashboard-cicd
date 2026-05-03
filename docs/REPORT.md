@@ -73,6 +73,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for a full breakdown of each component an
 | Build Docker Image       | Builds `flask-health-dashboard:latest` from `Dockerfile`     |
 | Deploy with Docker Compose | Starts the `app` service via `compose.dashboard.yml`       |
 | Verify Deployment        | Curls `/api/health` and `/api/report` to confirm the app responds |
+| Show Compose Status      | Displays `docker compose ps` and last 25 log lines               |
 | Cleanup                  | Tears down the Compose stack                                 |
 
 The pipeline performs real automation: it runs tests, builds an image, deploys a container, and verifies routes — not just print statements.
@@ -102,9 +103,9 @@ curl http://localhost:8080/api/health
 
 | Member   | Role                              | Key Deliverables                                      |
 |----------|-----------------------------------|-------------------------------------------------------|
-| Member 1 | Jenkins and Integration Lead      | `Jenkinsfile`, Jenkins pipeline configuration, test stage integration |
-| Member 2 | Flask Application and Testing Lead | `app.py`, `diagnostics.py`, `config.json`, `requirements.txt`, `tests/test_routes.py` |
-| Member 3 | Docker, Compose, and Documentation Lead | `Dockerfile`, `compose.dashboard.yml`, `.dockerignore`, `docs/` |
+| Cem Tutar | Jenkins and Integration Lead      | `Jenkinsfile`, Jenkins pipeline configuration, PATH fix, ansiColor fix |
+| AnthonyJSaade | Flask Application and Testing Lead | `app.py`, `diagnostics.py`, `config.json`, `requirements.txt`, `tests/test_routes.py`, Jenkins test stage |
+| Deepesh Managuru | Docker, Compose, and Documentation Lead | `Dockerfile`, `compose.dashboard.yml`, `.dockerignore`, `docs/`, Jenkins Compose status stage |
 
 Collaboration evidence: GitHub commit history, pull requests, and branch history visible in the repository.
 
@@ -112,33 +113,31 @@ Collaboration evidence: GitHub commit history, pull requests, and branch history
 
 ## 8. Screenshots
 
-> Add screenshots below after running the system. Required evidence:
-
 ### Application
-- [ ] Browser dashboard at `http://localhost:8080`
-- [ ] `curl http://localhost:8080/api/health` output
-- [ ] `curl http://localhost:8080/api/report` output
 
-### Docker
-- [ ] `docker build` success output
-- [ ] `docker ps` showing running container
+**Flask Dashboard in Browser**
+
+![Flask Dashboard](../screenshots/Screenshot-Flask-dashboard.jpeg)
+
+**`/api/health` Endpoint**
+
+![API Health](../screenshots/Screenshot-api-health.jpeg)
+
+**`/api/report` Endpoint**
+
+![API Report](../screenshots/Screenshot-api-report.jpeg)
 
 ### Docker Compose
-- [ ] `docker compose -f compose.dashboard.yml ps`
-- [ ] `docker compose -f compose.dashboard.yml logs --tail=25`
+
+**Docker Compose Running**
+
+![Docker Compose](../screenshots/Screenshot-docker-compose.jpeg)
 
 ### Jenkins
-- [ ] Jenkins pipeline job page
-- [ ] Successful pipeline stage view (all stages green)
-- [ ] Console output — checkout stage
-- [ ] Console output — test stage
-- [ ] Console output — Docker build stage
-- [ ] Console output — Compose deploy stage
-- [ ] Console output — curl verification stage
 
-### Collaboration
-- [ ] GitHub commit history showing all three members
-- [ ] Pull requests or branches
+**Jenkins Pipeline**
+
+![Jenkins Pipeline](../screenshots/Screenshot-Jenkins.jpeg)
 
 ---
 

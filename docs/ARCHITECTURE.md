@@ -46,7 +46,7 @@ Developer Pushes Code
 ### Jenkins
 - Runs the automated pipeline defined in `Jenkinsfile`.
 - Job is configured as `Pipeline script from SCM` using the GitHub repository.
-- Stages: Checkout → Run Route Tests → Build Docker Image → Deploy with Docker Compose → Verify Deployment → Cleanup.
+- Stages: Checkout → Run Route Tests → Build Docker Image → Deploy with Docker Compose → Verify Deployment → Show Compose Status → Cleanup.
 - Verifies the app is reachable before the pipeline is considered successful.
 - On macOS, the Jenkins pipeline includes `/usr/local/bin` in its PATH so Docker is available when the job runs.
 

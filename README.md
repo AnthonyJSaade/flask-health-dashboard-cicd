@@ -55,9 +55,9 @@ curl http://localhost:8080/api/health
 
 | Member | Role |
 |--------|------|
-| Member 1 | Jenkins and Integration Lead |
-| Member 2 | Flask Application and Testing Lead |
-| Member 3 | Docker, Compose, and Documentation Lead |
+| Cem Tutar | Jenkins and Integration Lead |
+| AnthonyJSaade | Flask Application and Testing Lead |
+| Deepesh Managuru | Docker, Compose, and Documentation Lead |
 
 ## Project Structure
 

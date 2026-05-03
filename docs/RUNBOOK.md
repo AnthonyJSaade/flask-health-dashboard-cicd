@@ -122,6 +122,7 @@ Jenkins must have access to:
 | Build Docker Image     | Runs `docker build`                                  |
 | Deploy with Docker Compose | Runs `docker compose up -d --build`            |
 | Verify Deployment      | Waits 5 seconds, then curls `/api/health` and `/api/report` |
+| Show Compose Status    | Displays `docker compose ps` and last 25 log lines  |
 | Cleanup                | Runs `docker compose down`                           |
 
 ### Trigger the Pipeline
