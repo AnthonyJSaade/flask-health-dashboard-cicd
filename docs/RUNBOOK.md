@@ -133,7 +133,34 @@ Jenkins must have access to:
 
 ---
 
-## 7. Troubleshooting
+## 7. Jenkins Job Setup
+
+If Jenkins is not yet configured, create the pipeline job using these settings:
+
+- Definition: `Pipeline script from SCM`
+- SCM: `Git`
+- Repository URL: `https://github.com/AnthonyJSaade/flask-health-dashboard-cicd.git`
+- Branches to build: `*/main`
+- Script Path: `Jenkinsfile`
+
+Then save and build the job.
+
+---
+
+## 8. Jenkins PATH Fix
+
+On macOS, Jenkins may run with a limited PATH and fail to locate Docker. If the job reports `docker: command not found`, update the pipeline environment or the Jenkins agent configuration so `/usr/local/bin` is included.
+
+Example pipeline environment setting:
+```groovy
+environment {
+  PATH = '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+}
+```
+
+---
+
+## 9. Troubleshooting
 
 ### Port 8080 already in use
 Jenkins itself often runs on 8080. If so, remap the Flask host port:

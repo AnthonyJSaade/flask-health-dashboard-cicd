@@ -13,7 +13,7 @@ The application is a System Health Dashboard: a lightweight Flask app that repor
 | Tool           | Version Used  | Purpose                                              |
 |----------------|---------------|------------------------------------------------------|
 | GitHub         | —             | Source control and team collaboration                |
-| Jenkins        | 2.x LTS       | CI/CD automation — checkout, test, build, deploy, verify |
+| Jenkins        | 2.555.1       | CI/CD automation — checkout, test, build, deploy, verify |
 | Docker         | 24+           | Packages Flask app into a portable container image   |
 | Docker Compose | v2 (plugin)   | Runs the application stack with a single command     |
 | Flask          | 3.0.3         | Python web framework for the dashboard application   |
@@ -148,3 +148,4 @@ Collaboration evidence: GitHub commit history, pull requests, and branch history
 - Jenkins and Docker port conflicts are common. If Jenkins occupies port 8080, the Flask host port must be remapped and kept consistent across `compose.dashboard.yml` and `Jenkinsfile`.
 - Splitting requirements.txt COPY from the rest of the app in the Dockerfile takes advantage of Docker layer caching, making repeated builds faster.
 - Running unit tests inside Jenkins before the Docker build catches application errors early, before any container overhead is involved.
+- Including the Jenkins agent PATH for `/usr/local/bin` ensures Docker is available during pipeline execution on macOS.

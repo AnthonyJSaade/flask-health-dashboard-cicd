@@ -35,6 +35,17 @@ docker run -d --name flask-health-dashboard -p 8080:8080 flask-health-dashboard:
 docker compose -f compose.dashboard.yml up -d --build
 ```
 
+### Run with Jenkins
+1. Open Jenkins at `http://localhost:8080`.
+2. Create a new Pipeline job.
+3. Configure the job as:
+   - Definition: `Pipeline script from SCM`
+   - SCM: `Git`
+   - Repository URL: `https://github.com/AnthonyJSaade/flask-health-dashboard-cicd.git`
+   - Branches to build: `*/main`
+   - Script Path: `Jenkinsfile`
+4. Run the job and verify the stages complete successfully.
+
 ### Verify
 ```bash
 curl http://localhost:8080/api/health
