@@ -5,6 +5,7 @@ pipeline {
     IMAGE_NAME = 'flask-health-dashboard'
     COMPOSE_FILE = 'compose.dashboard.yml'
     APP_PORT = '8080'
+    PATH = '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
   }
 
   options {
