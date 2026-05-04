@@ -1,5 +1,11 @@
 # CI/CD Pipeline for Automated Deployment of a Flask System Health Dashboard
 
+## Group members
+
+- Cem Tutar
+- Anthony Saade
+- Deepesh Managuru
+
 ## Project Purpose
 
 This project demonstrates a realistic DevOps workflow where a Flask web application is version-controlled in GitHub, built into a Docker image, deployed with Docker Compose, and automated through a Jenkins pipeline.
